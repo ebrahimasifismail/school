@@ -1,0 +1,30 @@
+{% extends 'school/base.html' %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">Classes</li>
+{% endblock %}
+
+{% block content %}
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Class</th>
+        <th>Division</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        {% for class in classes %}
+        <tr>
+          <td>
+            <a href="{% url 'school:classes' class.id  %}">{{ class.standard }}</a>
+            
+          </td>
+          <td class="align-middle">{{ class.division }}</td>
+          
+          
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

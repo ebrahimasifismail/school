@@ -1,0 +1,26 @@
+{% extends 'school/base.html' %}
+{% load static %}
+{% block breadcrumb %}
+  <li class="breadcrumb-item "><a href="{% url 'school:index' %}">Classes</a></li>
+  <li class="breadcrumb-item active">{{students.standard}} - {{ students.division }}</li>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+    {% for student in students.student_classes.all %}
+        
+            <div class="col-lg-4 col-md-4">
+            <div class="card mb-2" >
+              <img class="card-img-top" src="{% static 'img/true.png' %}" alt="Card image" style="width:100%">
+              <div class="card-body">
+                
+                <h4 class="card-title"><a href="{% url 'school:student' students.pk student.pk  %}">{{ student.name }}</a></h4>
+                <h4 class="card-title">{{students.standard}} - {{ students.division }}</h4>
+                <a href="#" class="btn btn-primary">See Profile</a>
+              </div>
+            </div>
+            </div>
+        
+    {% endfor %}
+    </div>
+{% endblock %}
