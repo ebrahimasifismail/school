@@ -37,9 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # 'soet',
+    
+    
     'school',
     'accounts',
     'widget_tweaks',
+    'app',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +55,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'soet.middleware.StackOverflowMiddleware',
+    'app.middleware.LoginRequiredMiddleware'
 ]
 
 ROOT_URLCONF = 'cbv.urls'
@@ -128,10 +135,15 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-LOGOUT_REDIRECT_URL = 'school:index'
+LOGOUT_REDIRECT_URL = '/login/'
+
+LOGIN_EXEMPT_URLS = (
+    r'^logout/$',
+    r'^signup/$',
+)
 
 LOGIN_REDIRECT_URL = 'school:index'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-LOGIN_URL = 'accounts:login'
+LOGIN_URL = '/login/'

@@ -1,0 +1,60 @@
+{% extends 'school/base.html' %}
+
+{% block breadcrumb %}
+  <li class="breadcrumb-item active">Classes</li>
+{% endblock %}
+
+{% block content %}
+
+<h1>Hindi</h1>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Student</th>
+        <th>Class</th>
+        <th>Division</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        {% for student in student_hindi %}
+        <tr>
+          <td>
+            <a href="{% url 'school:student' student.standard.pk student.pk  %}">{{ student.name }}</a>
+            
+          </td>
+          <td class="align-middle">{{ student.standard }}</td>
+          <td class="align-middle">{{ student.division }}</td>
+          
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <h1>Sanskrit</h1>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Student</th>
+        <th>Class</th>
+        <th>Division</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        {% for student in student_sanskrit %}
+        <tr>
+          <td>
+            <a href="{% url 'school:student' student.standard.pk student.pk  %}">{{ student.name }}</a>
+            
+          </td>
+          <td class="align-middle">{{ student.standard }}</td>
+          <td class="align-middle">{{ student.division }}</td>
+          
+          
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+
+

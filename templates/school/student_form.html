@@ -1,0 +1,12 @@
+{% extends 'school/base.html' %}
+
+{% block breadcrumb %}
+{% endblock %}
+
+{% block content %}
+
+<form method="post">{% csrf_token %}
+    {% include 'includes/form.html' %}
+    <input type="submit" value="Save">
+</form>
+{% endblock %}
