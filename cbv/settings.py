@@ -144,6 +144,7 @@ LOGOUT_REDIRECT_URL = '/login/'
 LOGIN_EXEMPT_URLS = (
     r'^logout/$',
     r'^signup/$',
+    r'^admin/$',
 )
 
 LOGIN_REDIRECT_URL = 'school:index'
